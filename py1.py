@@ -1,5 +1,6 @@
 import pandas as pd
 import time
+import requests
 from nba_api.stats.static import players
 from nba_api.stats.endpoints import playercareerstats, commonplayerinfo
 
@@ -39,7 +40,7 @@ for ap, player in enumerate(active_players):
         pd.concat(demographics_data).to_csv('demographic_partial.csv', index=False)
         
     #To avoid rate limits
-    time.sleep(.5)
+    time.sleep(2)
     
 #Save the final datasets
 pd.concat(workload_data).to_csv('workload_data.csv', index=False)
